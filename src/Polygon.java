@@ -1,5 +1,12 @@
 import java.text.DecimalFormat;
-
+/**
+ * @file Polygon.java
+ * @author Gracie Gabel
+ * @date 2/2/2022
+ * @description Creates a polygon with the give num of sides
+ * the side length and the type of polygon, or uses a constructor to set those values.
+ * Also calculates the permiter.
+ */
 public class Polygon {
 
         //Instance variables (of appropriate type) for the number of sides, side length, shape type (String), and any others as needed
@@ -23,7 +30,7 @@ public class Polygon {
          * the side length and the type of polygon, or uses a constructor to set those values.
          * Also calculates the permiter.
          */
-        private sides;
+        private int sides;
         private double sideLength;
         private String type;
         private double per;
@@ -37,14 +44,13 @@ public class Polygon {
             sideLength = 1.0;
             per = 3.0;
         }
-        /**
-         * @file polygon.java
-         * @author Gracie Gabel
-         * @date 2/2/2022
-         * @description Creates a polygon with the give num of sides
-         * the side length and the type of polygon, or uses a constructor to set those values.
-         * Also calculates the permiter.
-         */
+
+    /**
+     *
+     * @param ns number of sides
+     * @param sl
+     * @param st
+     */
         public Polygon(int ns, double sl,String st){
             if(sideLength>0){
                 sideLength = sl;
