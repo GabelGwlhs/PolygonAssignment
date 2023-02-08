@@ -9,15 +9,15 @@ import java.text.DecimalFormat;
  */
 public class Polygon {
 
-        
+        //Instance variables
       
         private int sides;
         private double sideLength;
         private String type;
         private double per;
-        boolean poly;
+        boolean isPolygon = true;
 
-    /**
+    /**@description takes in a polygon with no parameters and sets the defult values to the instance variables
      *
      */
     public Polygon(){
@@ -29,44 +29,78 @@ public class Polygon {
     /**
      *
      * @param ns number of sides
-     * @param sl
-     * @param st
+     * @param sl side length of the instance
+     * @param st is the type of the shape
+     * @description checks to make sure the paraameters make a valid polygon if not it sets the intsance variables
+     * to the default values
      */
         public Polygon(int ns, double sl,String st){
-            if(sl>0.0){
-                sideLength = sl;
-            }else{
-                sideLength=1.0;
-            }
-            if(ns>=3) {
+
+            if(ns>=3&&sl>0.0) {
             type = st;
             sides = ns;
+            sideLength = sl;
             }
             else{
-                System.out.println("Not a valid polygon");
-        }
+                isPolygon =false;
+                sides = 3;
+                sideLength = 1.0;
+                type = "triangle";
+            }
+
         }
 
-        public int getNumSides(){
+    /**
+     *
+     * gets the number of sides
+     */
+
+    public int getNumSides(){
             return sides;
         }
-        public double getSideLength(){
+
+    /**
+     *
+     * gets the side length of the polygon
+     */
+    public double getSideLength(){
             return sideLength;
         }
-        public String getShapeType(){
+
+    /**
+     *
+     * gets the shape type
+     */
+    public String getShapeType(){
             return type;
         }
 
-        public double calculatePerimeter(){
+    /**
+     *
+     * calcilates the perimeter
+     */
+    public double calculatePerimeter(){
         per = sides*sideLength;
 
         return per;
 
         }
-        //to string
-        public String toString(){
+
+    /**
+     *
+     * To String making sure it is a valid polygon and prints out the type sides and side length stored in string f
+     * then returns f
+     */
+    public String toString(){
             DecimalFormat df = new DecimalFormat("#.###");
-            String f ="Your shape is a "+type+" and it has "+sides+" sides. It has a side length of "+df.format(sideLength)+". It has a perimeter of "+df.format(calculatePerimeter())+" units.";
-          return f;
+            String f="";
+            if (isPolygon==true){
+             f ="Your shape is a "+type+" and it has "+sides+" sides. It has a side length of "+df.format(sideLength)+". It has a perimeter of "+df.format(calculatePerimeter())+" units.";
+            return f;
         }
+            else{
+                f = "Not a valid polygon.Your polygon was given a default of "+ sides+" sides , was named "+type +", and each side has a length of "+df.format(sideLength) +" units.";
+                return f;
+            }
     }
+}
