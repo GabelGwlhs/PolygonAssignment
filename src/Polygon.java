@@ -48,6 +48,7 @@ public class Polygon {
                 type = "triangle";
             }
 
+
         }
 
     /**
@@ -77,11 +78,11 @@ public class Polygon {
 
     /**
      *
-     * calcilates the perimeter
+     * calcilates the perimeter and returns it in 3 decimal places
      */
     public double calculatePerimeter(){
         per = sides*sideLength;
-
+        per = Math.round(per*Math.pow(10.0,3.0))/1000.0;//rounding
         return per;
 
         }
@@ -95,11 +96,11 @@ public class Polygon {
             DecimalFormat df = new DecimalFormat("#.###");
             String f="";
             if (isPolygon==true){
-             f ="Your shape is a "+type+" and it has "+sides+" sides. It has a side length of "+df.format(sideLength)+". It has a perimeter of "+df.format(calculatePerimeter())+" units.";
+             f ="Your shape is a "+type+" and it has "+sides+" sides. It has a side length of "+sideLength+". It has a perimeter of "+calculatePerimeter()+" units.";
             return f;
         }
             else{
-                f = "Not a valid polygon.Your polygon was given a default of "+ sides+" sides , was named "+type +", and each side has a length of "+df.format(sideLength) +" units.";
+                f = "Not a valid polygon.Your polygon was given a default of "+ sides+" sides , was named "+type +", and each side has a length of "+sideLength +" units.";
                 return f;
             }
     }

@@ -1,5 +1,8 @@
 public class PolygonTester {
     public static void main(String[] args) {
+        /**
+         * using Mr. Smiths tester to test my code
+         */
         System.out.println("\nThis is the output with 5 sides, side length of 6.865, and a name of pentagon");
         Polygon poly1 = new Polygon(5,6.865,"pentagon");
         System.out.println(poly1);
