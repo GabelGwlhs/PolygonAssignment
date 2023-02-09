@@ -93,8 +93,7 @@ public class Polygon {
      * then returns f
      */
     public String toString(){
-            DecimalFormat df = new DecimalFormat("#.###");
-            String f="";
+           String f ="";
             if (isPolygon==true){
              f ="Your shape is a "+type+" and it has "+sides+" sides. It has a side length of "+sideLength+". It has a perimeter of "+calculatePerimeter()+" units.";
             return f;
