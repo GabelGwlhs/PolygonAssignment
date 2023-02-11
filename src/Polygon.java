@@ -51,7 +51,7 @@ public class Polygon {
 
         }
 
-    /**
+    /**acessors
      *
      * gets the number of sides
      */
@@ -59,7 +59,6 @@ public class Polygon {
     public int getNumSides(){
             return sides;
         }
-
     /**
      *
      * gets the side length of the polygon
@@ -75,6 +74,24 @@ public class Polygon {
     public String getShapeType(){
             return type;
         }
+
+    /**mutators
+     * @param sideLength is set equal to the side length of the object
+     */
+    public void setSideLength(double sideLength) {
+        this.sideLength = sideLength;
+    }
+
+    /**
+     *
+     * @param name is set equal to type
+     */
+    public void setShapeName(String name){
+        type = name;
+    }
+    public void setNumSides(int side){
+        sides = side;
+    }
 
     /**
      *
