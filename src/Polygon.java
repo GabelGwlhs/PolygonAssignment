@@ -3,9 +3,9 @@ import java.text.DecimalFormat;
  * @file Polygon.java
  * @author Gracie Gabel
  * @date 2/2/2022
- * @description Creates a polygon with the give num of sides
- * the side length and the type of polygon, or uses a constructor to set those values.
- * Also calculates the permiter.
+ * @description Creates a polygon with the given num of sides,
+ * the side length, and the type of polygon, or uses a defualt constructor to set those values.
+ * Also calculates the perimeter, and has accessors and mutators with validation checks.
  */
 public class Polygon {
 
@@ -17,13 +17,13 @@ public class Polygon {
         private double per;
         boolean isPolygon = true;
 
-    /**@description takes in a polygon with no parameters and sets the defult values to the instance variables
+    /**@description takes in a polygon with no parameters and sets the default values to the instance variables
      *
      */
     public Polygon(){
             type = "Triangle";
             sideLength = 1.0;
-            per = 3.0;
+            sides = 3;
         }
 
     /**
@@ -31,7 +31,7 @@ public class Polygon {
      * @param ns number of sides
      * @param sl side length of the instance
      * @param st is the type of the shape
-     * @description checks to make sure the paraameters make a valid polygon if not it sets the intsance variables
+     * @description checks to make sure the paraameters make a valid polygon if not it sets the instance variables
      * to the default values
      */
         public Polygon(int ns, double sl,String st){
@@ -45,7 +45,7 @@ public class Polygon {
                 isPolygon =false;
                 sides = 3;
                 sideLength = 1.0;
-                type = "triangle";
+                type = "Triangle";
             }
 
 
@@ -53,7 +53,7 @@ public class Polygon {
 
     /**acessors
      *
-     * gets the number of sides
+     * gets the number of sides and returns it
      */
 
     public int getNumSides(){
@@ -61,7 +61,7 @@ public class Polygon {
         }
     /**
      *
-     * gets the side length of the polygon
+     * gets the side length of the polygon and returns it.
      */
     public double getSideLength(){
             return sideLength;
@@ -69,17 +69,19 @@ public class Polygon {
 
     /**
      *
-     * gets the shape type
+     * gets the shape type and returns it.
      */
     public String getShapeType(){
             return type;
         }
 
     /**mutators
-     * @param sideLength is set equal to the side length of the object
+     * @param sideLength is set equal to the side length of the object if it is greater than 0.
      */
     public void setSideLength(double sideLength) {
-        this.sideLength = sideLength;
+        if (sideLength > 0) {
+            this.sideLength = sideLength;
+        }
     }
 
     /**
@@ -89,13 +91,20 @@ public class Polygon {
     public void setShapeName(String name){
         type = name;
     }
-    public void setNumSides(int side){
-        sides = side;
-    }
 
     /**
      *
-     * calcilates the perimeter and returns it in 3 decimal places
+     * @param side is set to instance variable sides if it is greater than or equal
+     * to zero.
+     */
+    public void setNumSides(int side) {
+        if (side >= 3) {
+            sides = side;
+        }
+    }
+    /**
+     *
+     * calculates the perimeter and returns it in 3 decimal places
      */
     public double calculatePerimeter(){
         per = sides*sideLength;
